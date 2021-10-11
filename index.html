@@ -1,14 +1,79 @@
 <html>
 <head>
 <title>CPS Counter</title>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+
+
+  <button class="copybtn" id="CopyBTN">Copy Your CPS</button>
+  <span class="alertcopy">CPS Copied To Clipboard!</span>
+
+
+
+
 <style type="text/css">
   
   body{
     background-color: #000012;
+    margin-top: 5px;
+    user-select: none;
     align-content: center;
-    vertical-align: center;
-    margin-top: 90px;
+          display: block;
+
     }
+
+
+    .copybtn{
+      background-color: #eb4034;
+      padding: 10px 90px;
+      color: whitesmoke;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 0 auto;
+      font-size: 17px;
+      display: block;
+      background-image: linear-gradient(to top left,
+          rgba(0, 0, 0, .2),
+          rgba(0, 0, 0, .2) 30%,
+          rgba(0, 0, 0, 0));
+
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+    user-select: none;
+    }
+
+    .alertcopy{                            
+      margine: auto;
+      position: absolute;
+      background-color: #121263;
+      color: white;
+      padding: 17px 70px;
+      border-radius: 20px;
+      text-align: center;
+      margin-left: -5%;
+      margin-right: 0%;
+      margin-top: -2%;
+      display: none;
+      font-size: 20px;
+      margin: 0 auto;
+      text-align: center;
+      background-image: linear-gradient(to top left,
+          rgba(0, 0, 0, .2),
+          rgba(0, 0, 0, .2) 30%,
+          rgba(0, 0, 0, 0));
+
+
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+    user-select: none;
+    }
+
+
+
 
   #content {
     width: 200px;
@@ -24,20 +89,20 @@
   }
 
   #content:hover{
-    padding: 35px;
+    padding: 25px;
     color: #ffffff;
     transition: 0.2s ease;
     background-color: #000321;
-    width: 220px;
-    border: 1px solid #dc0000;
+    width: 250px;
+    border: 2px solid #dc0000;
   }
 
 
   #clickarea {
     background: center;
-    width: 500px;
-    height : 300px;
-    border: 2px dashed #dc0000;
+    width: 400px;
+   height: 345px;
+    border: 3px dashed #dc0000;
     font-size: 20px;
     text-align: center;
     margin: 0 auto;
@@ -55,10 +120,10 @@
     border: 2px solid #dc0000;
     background-color: #000321;
     background: center;
-    transition: 0.3s ease;
+    transition: 0.1s ease;
     cursor: pointer;
-    width: 540px;
-   height: 320px;
+    width: 560px;
+    height: 340px;
     background-image: url(cursor.gif);
     align-items: center;
     }
@@ -73,47 +138,102 @@
   }
 	
   #start {
+    align-items: center;
     transition: 0.2s ease;
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%,-50%);
     border: 1.5px solid #000000;
     line-height: 2.5;
-    padding: 0px 20px;
+    padding: 153px 270px;
     font-size: 1.3rem;
     text-align: center;
     color: #fff;
-    text-shadow: 1px 1px 1px #000;
+    text-shadow: 2px 2px 2px #000;
     border-radius: 10px;
-    background-color: rgba(220, 0, 0, 1);
+    background-color: rgba(220, 0, 0, 1);/**/
     background-image: linear-gradient(to top left,
 				  rgba(0, 0, 0, .2),
 				  rgba(0, 0, 0, .2) 30%,
 				  rgba(0, 0, 0, 0));
 
-    box-shadow: 0px 4px #520b0b;
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
     user-select: none;
 
   }
 	
   #start:hover {
-    background-color: #078ea3;
-    cursor: pointer;
+    align-items: center;
+    background-color: #ff3333;
+    cursor: pointer;  
+    padding: 163px 270px;/*padding: 163px 270px;*/
     box-shadow: none;
-    transition: 0.2s ease;
-    font-size: 2.3rem;
+    transition: 0.3s ease;
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+    user-select: none;
+    align-content: center;
     }
 	
   #start:active {
     box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
                 inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
 
-    
-  }
+
+
+
+
+
+
+.alert {
+  padding: 15px;
+  background-color: #f44336;
+  color: ghostwhite;
+  width: 30%;
+  margin-left: 34%;
+  user-select: none;
+  text-shadow: 1px 1px 1px #000;
+  box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+              inset 2px 2px 3px rgba(0, 0, 0, .6);
+  border-radius: 4px;
+  display: none;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: yellow;
+  font-weight: bold;
+  float: right;
+  font-size: 30px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+  display: none;
+}
+
+.closebtn:hover {
+  color: #800900;
+}
+
+
+
+
+
 
 </style>
 </head>
 <body>
+
+
+<div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  <strong>Challenge!!</strong>  Click with the speed of CPS more than 8
+</div>
+
+
+
 
   <div id="content">
     CPS: <span id="clicks"></span><br/>
@@ -126,7 +246,39 @@
   <div id="clickarea">
     <button id="start">START</button>
   </div>
+
   <script type="text/javascript">
+
+
+
+
+
+
+/*--------------------------------------------------------------------*/
+   function copy(copyID){
+    var $inp=$("<input>");
+    $("body").append($inp);
+    $inp.val($(""+copyID).text()).select();
+
+    document.execCommand("copy");
+    $inp.remove();
+    $(".alertcopy").fadeIn(1000, function(){
+      $(".alertcopy").fadeOut(2000);
+    });
+   }
+
+   $(document).ready(function(){
+    $("#CopyBTN").click(function(){
+      copy('#clicks');/*('#text1')*/
+    })
+   });
+
+/*----------------------------------------------------------------------*/
+
+
+
+
+
 
     var score; // to store the current score
     var duration = 10; // 10 seconds
@@ -176,6 +328,7 @@
 
   // end game method
   function endGame() {
+
     // we write final stats
     var clicsBySeconds = (score / duration).toFixed(2);
     timerTxt.textContent = duration.toFixed(3);
@@ -186,15 +339,27 @@
     // we display result to the user in delayed mode 
     //to update DOM elements just before the alert
     setTimeout(function() {
+
+
+
       alert('You made ' + score + ' clicks in ' + duration + 
-      ' seconds. Your CPS are ' + clicsBySeconds + 
-      '. Well Tried!');
+      ' seconds. Your CPS are "' + clicsBySeconds + 
+      '"  || Well Tried!');
+
+ /*Turtle rank*/  if (clicsBySeconds > 7.998) {
+      alert('WOW! Rank up, You completed a challenge');
+
+
+    }
+
+
     }, 10);
   }
 
   // we set a click event listener on the start button
   startBtn.addEventListener("click", function(e) {
     startGame();
+    show(alert);
   });
 
   // we add a click event listener on the click area div to update the score when the user will click
@@ -202,7 +367,9 @@
     if (!ended) {
       score++;
       scoreTxt.textContent = score;
+
     }
+
   });
 </script>
 </body>
