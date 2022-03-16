@@ -1,0 +1,502 @@
+<html>
+<head>
+<title>CPS Counter</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style type="text/css">
+  
+  body{
+
+    background-color: #000012;
+    transition: 2s ease;
+    margin-top: 5px;
+    user-select: none;
+    background-image: linear-gradient(to top left,
+          rgba(255, 0, 0, .15) 50%,
+          rgba(0, 1, 48, .1) 30%,
+          rgba(0, 0, 0, 0));
+
+    }
+
+
+  #content {
+    text-shadow: 2px 2px 2px #4d4d4d;
+    width: 200px;
+    border: 1px dashed #dc0000;
+    font-size: 20px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 0px;
+    padding: 25px;
+    background-image: url(bg.png);
+    transition: 0.2s ease;
+    color: #fff;
+  }
+
+  #content:hover{
+   /* padding: 25px;*/
+    color: #ffffff;
+    transition: 0.2s ease;
+    background-color: #000321;
+    width: 250px;
+    border: 2px solid #dc0000;
+  }
+
+
+  #clickarea {
+    background: center;
+    width: 400px;
+    height: 345px;
+    border: 3px dashed #dc0000;
+    font-size: 20px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 20px;
+    position: relative;
+    background-color: none;
+    transition: 0.2s ease;
+    user-select: none;
+    background-image: url(cursor.gif);
+    align-content: center;
+  }
+
+  #clickarea:hover{
+    border: 2px solid #dc0000;
+    background-color: #000321;
+    background: center;
+    transition: 0.1s ease;
+    cursor: crosshair;
+    width: 560px;
+    height: 340px;
+    background-image: url(cursor.gif);
+    align-items: center;
+    }
+	
+  #logo {
+    width: 0px;
+    height: 0px;
+    margin: 0 auto;
+    margin-top: 0px;
+    display: block;
+    user-select: none;
+  }
+	
+  #start {
+    align-items: center;
+    transition: 0.2s ease;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    border: 1.5px solid #000000;
+    line-height: 2.5;
+    padding: 153px 270px;
+    font-size: 1.3rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 2px 2px 2px #000;
+    border-radius: 10px;
+    background-color: rgba(220, 0, 0, 1);/**/
+    background-image: linear-gradient(to top left,
+				  rgba(0, 0, 0, .2),
+				  rgba(0, 0, 0, .2) 30%,
+				  rgba(0, 0, 0, 0));
+
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+    user-select: none;
+
+  }
+	
+  #start:hover {
+    align-items: center;
+    background-color: #ff3333;
+    cursor: pointer;  
+    padding: 163px 270px;/*padding: 163px 270px;*/
+    box-shadow: none;
+    transition: 0.3s ease;
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+    user-select: none;
+    align-content: center;
+    }
+	
+  #start:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+
+
+.alert {
+  padding: 15px;
+  background-color: #f44336;
+  color: ghostwhite;
+  width: 30%;
+  margin-left: 34%;
+  user-select: none;
+  text-shadow: 1px 1px 1px #000;
+  box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+              inset 2px 2px 3px rgba(0, 0, 0, .6);
+  border-radius: 4px;
+  display: none;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: yellow;
+  font-weight: bold;
+  float: right;
+  font-size: 30px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+  display: none;
+}
+
+.closebtn:hover {
+  color: #800900;
+}
+
+
+/*----------------Copy System------------------*/
+
+    .copybtn{
+      background-color: #eb4034;
+      padding: 10px 10px;
+      color: whitesmoke;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 0 auto;
+      font-size: 17px;
+      display: block;
+      margin-top: 10px;
+      background-image: linear-gradient(to top left,
+          rgba(0, 0, 0, .2),
+          rgba(0, 0, 0, .2) 30%,
+          rgba(0, 0, 0, 0));
+
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+    user-select: none;
+    text-shadow: 2px 2px 2px #000;
+      transition: 0.5s ease;
+    }
+
+
+.copybtn:hover{
+  transition: 0.2s ease;
+    padding: 10px 25px;  
+    border-radius: 10px;
+}
+
+    .alertcopy{  
+      text-shadow: 2px 2px 2px #000;                          
+      margine: auto;
+      position: absolute;
+      background-color: #121263;
+      color: white;
+      padding: 15px 60px;
+      border-radius: 20px;
+      text-align: center;
+      margin-left: -5%;
+      margin-right: 0%;
+      margin-top: -2%;
+      display: none;
+      font-size: 20px;
+      margin: 0 auto;
+      text-align: center;
+      background-image: linear-gradient(to top left,
+          rgba(0, 0, 0, .2),
+          rgba(0, 0, 0, .2) 30%,
+          rgba(0, 0, 0, 0));
+
+
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+    user-select: none;
+    }
+/*------------------nav (side)---------------*/
+
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgba(11, 12, 38, 0.95);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #ff4040;
+  display: block;
+  transition: 0.3s;
+  text-shadow: 2px 2px 2px #000;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #0eede6; 
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+  color: yellowgreen;
+}
+
+.overlay .closebtn:hover{
+  color: red;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  top: 15px;
+  right: 35px;
+  }
+
+
+
+</style>
+</head>
+<body>
+
+
+<div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  <strong>Challenge!!</strong>  Click with the speed of CPS more than 8
+</div>
+
+
+
+
+
+
+
+
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+    <a href="https://www.youtube.com/c/ShloksRoboWorld" target="_blank">Youtube</a>
+    <a href="https://github.com/ghost5077srw" target="_blank">Github</a>
+    <a href="https://www.instagram.com/5hl0k_not_found/" target="_blank">Instagram</a>
+
+  </div>
+</div>
+
+<span style="font-size:37px; cursor:pointer; color: #ff6a00;" onclick="openNav()">&#9776; </span>
+
+
+
+
+
+
+
+
+  <div id="content">
+    CPS: <span id="clicks"></span><br/>
+    <span></span><br/>
+    Time: <span id="timer"></span><br/>
+    Clicks: <span id="score"></span><br/>
+    Timer: 5 Sec
+  </div>
+
+
+    <button class="copybtn" id="CopyBTN"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-clipboard-check" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+  <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+  <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+</svg> Copy CPS</button>
+
+  <span class="alertcopy">CPS Copied To Clipboard!</span>
+
+
+  <div id="clickarea" class="btn">
+    <button id="start" onclick="move()">START</button>
+  </div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js" charset="utf-8"></script>
+
+
+  <script type="text/javascript">
+
+var i = 0;
+function move() {
+  if (i == 0) {
+    i = 1;
+    var elem = document.getElementById("myBar");
+    var width = 1;
+    var id = setInterval(frame, 100);
+    function frame() {
+      if (width >= 100) {
+        clearInterval(id);
+        i = 0;
+      } else {
+        width++;
+        elem.style.width = width + "%";
+      }
+    }
+  }
+}
+
+
+
+
+
+
+/*--------------------------------------------------------------------*/
+   function copy(copyID){
+    var $inp=$("<input>");
+    $("body").append($inp);
+    $inp.val($(""+copyID).text()).select();
+
+    document.execCommand("copy");
+    $inp.remove();
+    $(".alertcopy").fadeIn(1000, function(){
+      $(".alertcopy").fadeOut(2000);
+    });
+   }
+
+   $(document).ready(function(){
+    $("#CopyBTN").click(function(){
+      copy('#clicks');/*('#text1')*/
+    })
+   });
+
+/*----------------------------------------------------------------------*/
+
+
+
+
+
+
+    var score; // to store the current score
+    var duration = 5; // 10 seconds
+    var startTime; // start time
+    var ended = true; // boolean indicating if game is ended
+    // we get DOM References for some HTML elements
+    var timerTxt = document.getElementById("timer");
+    var scoreTxt = document.getElementById("score");
+    var clicksTxt = document.getElementById("clicks");
+    var startBtn = document.getElementById("start");
+    var clickArea = document.getElementById("clickarea");
+
+    // we define two functions for showing or hiding a HTML element
+    var show = function(elem) {
+      elem.style.display = 'inline';
+    };
+
+    var hide = function(elem) {
+      elem.style.display = 'none';
+    };
+
+    // Method called when the game starts
+    function startGame() {
+      hide(startBtn);
+      score = -1;
+      ended = false;
+      // we get start time
+      startTime = new Date().getTime();
+
+      // we create a timer with the setInterval method
+      var timerId = setInterval(function() {
+        var total = (new Date().getTime() - startTime) / 1000;
+
+        // while total lower than duration, we update timer and the clicks by seconds
+        if (total < duration) {
+          timerTxt.textContent = total.toFixed(3);
+          clicksTxt.textContent = (score / total).toFixed(2);
+        } else {
+          // otherwise, game is ended, we clear interval and we set game as ended
+          ended = true;
+          clearInterval(timerId);
+          // we call the end game method
+          endGame();
+        }
+      }, 1);
+  }
+
+  // end game method
+  function endGame() {
+
+    // we write final stats
+    var clicsBySeconds = (score / duration).toFixed(2);
+    timerTxt.textContent = duration.toFixed(3);
+    clicksTxt.textContent = clicsBySeconds;
+    // we show start button to play an other game
+    show(startBtn);
+
+    // we display result to the user in delayed mode 
+    //to update DOM elements just before the alert
+    setTimeout(function() {
+
+
+
+      alert('You made ' + score + ' clicks in ' + duration + 
+      ' seconds. Your CPS are "' + clicsBySeconds + 
+      '"  || Well Tried!');
+
+ /*Turtle rank*/  if (clicsBySeconds > 7.998) {
+      alert('WOW! Rank up, You completed a challenge');
+
+
+    }
+
+
+    }, 10);
+  }
+
+  // we set a click event listener on the start button
+  startBtn.addEventListener("click", function(e) {
+    startGame();
+    show(alert);
+  });
+
+  // we add a click event listener on the click area div to update the score when the user will click
+  clickArea.addEventListener("click", function(e) {
+    if (!ended) {
+      score++;
+      scoreTxt.textContent = score;
+
+    }
+
+  });
+
+
+
+/*-------------------------nav*/
+function openNav() {
+  document.getElementById("myNav").style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+}
+
+</script>
+</body>
+</html>
