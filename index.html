@@ -7,7 +7,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style type="text/css">
   
@@ -17,8 +17,10 @@
     transition: 2s ease;
     margin-top: 5px;
     user-select: none;
-    align-content: center;
-          display: block;
+    background-image: linear-gradient(to top left,
+          rgba(255, 0, 0, .15) 50%,
+          rgba(0, 1, 48, .1) 30%,
+          rgba(0, 0, 0, 0));
 
     }
 
@@ -30,7 +32,7 @@
     font-size: 20px;
     text-align: center;
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: 0px;
     padding: 25px;
     background-image: url(bg.png);
     transition: 0.2s ease;
@@ -50,7 +52,7 @@
   #clickarea {
     background: center;
     width: 400px;
-   height: 345px;
+    height: 345px;
     border: 3px dashed #dc0000;
     font-size: 20px;
     text-align: center;
@@ -70,7 +72,7 @@
     background-color: #000321;
     background: center;
     transition: 0.1s ease;
-    cursor: pointer;
+    cursor: crosshair;
     width: 560px;
     height: 340px;
     background-image: url(cursor.gif);
@@ -78,10 +80,10 @@
     }
 	
   #logo {
-    width: 90px;
-    height: 90px;
+    width: 0px;
+    height: 0px;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 0px;
     display: block;
     user-select: none;
   }
@@ -161,31 +163,10 @@
   color: #800900;
 }
 
-/*--------------Timer Bar--------------*/
-
-#myProgress {
-  width: 100%;
-  background-color: #01012b;
-  margin-top: 10px;
-  border-radius: 5px;
-    transition: 0.2s ease;
-
-}
-
-
-#myBar {
- border-radius: 5px;
-  width: 1%;
-  height: 10px;
-  background-color: #611d1d;
-      box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
-                inset 2px 2px 3px rgba(0, 0, 0, .6);
-}
 
 /*----------------Copy System------------------*/
 
     .copybtn{
-      margin-top: ;
       background-color: #eb4034;
       padding: 10px 10px;
       color: whitesmoke;
@@ -210,7 +191,8 @@
 
 .copybtn:hover{
   transition: 0.2s ease;
-    padding: 15px 20px;  
+    padding: 10px 25px;  
+    border-radius: 10px;
 }
 
     .alertcopy{  
@@ -239,6 +221,63 @@
                 inset 2px 2px 3px rgba(0, 0, 0, .6);
     user-select: none;
     }
+/*------------------nav (side)---------------*/
+
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgba(11, 12, 38, 0.95);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #ff4040;
+  display: block;
+  transition: 0.3s;
+  text-shadow: 2px 2px 2px #000;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #0eede6; 
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+  color: yellowgreen;
+}
+
+.overlay .closebtn:hover{
+  color: red;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  top: 15px;
+  right: 35px;
+  }
+
 
 
 </style>
@@ -254,12 +293,35 @@
 
 
 
+
+
+
+
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+    <a href="https://www.youtube.com/c/ShloksRoboWorld" target="_blank">Youtube</a>
+    <a href="https://github.com/ghost5077srw" target="_blank">Github</a>
+    <a href="https://www.instagram.com/5hl0k_not_found/" target="_blank">Instagram</a>
+
+  </div>
+</div>
+
+<span style="font-size:37px; cursor:pointer; color: #ff6a00;" onclick="openNav()">&#9776; </span>
+
+
+
+
+
+
+
+
   <div id="content">
     CPS: <span id="clicks"></span><br/>
     <span></span><br/>
     Time: <span id="timer"></span><br/>
     Clicks: <span id="score"></span><br/>
-    Timer: 10 Sec
+    Timer: 5 Sec
   </div>
 
 
@@ -275,13 +337,6 @@
   <div id="clickarea" class="btn">
     <button id="start" onclick="move()">START</button>
   </div>
-
-
-<div id="myProgress">
-  <div id="myBar"></div>
-</div>
-
-
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js" charset="utf-8"></script>
@@ -340,7 +395,7 @@ function move() {
 
 
     var score; // to store the current score
-    var duration = 10; // 10 seconds
+    var duration = 5; // 10 seconds
     var startTime; // start time
     var ended = true; // boolean indicating if game is ended
     // we get DOM References for some HTML elements
@@ -430,6 +485,18 @@ function move() {
     }
 
   });
+
+
+
+/*-------------------------nav*/
+function openNav() {
+  document.getElementById("myNav").style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+}
+
 </script>
 </body>
 </html>
