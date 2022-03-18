@@ -17,43 +17,42 @@
     transition: 2s ease;
     margin-top: 5px;
     user-select: none;
-    background-image: linear-gradient(to top left,
-          rgba(255, 0, 0, .15) 50%,
-          rgba(0, 1, 48, .1) 30%,
-          rgba(0, 0, 0, 0));
-
+    background-image: url(background.png);
+    align-content: center;
+    background-size: cover;
     }
 
 
   #content {
     text-shadow: 2px 2px 2px #4d4d4d;
     width: 200px;
-    border: 1px dashed #dc0000;
+    border: 2px solid rgb(0, 199, 172);
     font-size: 20px;
     text-align: center;
     margin: 0 auto;
     margin-top: 0px;
     padding: 25px;
-    background-image: url(bg.png);
-    transition: 0.2s ease;
-    color: #fff;
+    transition: 0.5s ease;
+    color: #45c1ff;
+    background-color: rgba(0, 0,0, 0.55);
   }
 
   #content:hover{
    /* padding: 25px;*/
-    color: #ffffff;
+    color: yellow;
     transition: 0.2s ease;
-    background-color: #000321;
+    background-color: rgba(0, 0,0, 0.7);
     width: 250px;
-    border: 2px solid #dc0000;
+    border: 2px solid yellow;
+    font-size: 22;
   }
 
 
   #clickarea {
     background: center;
     width: 400px;
-    height: 345px;
-    border: 3px dashed #dc0000;
+    height: 345px;  
+    border: 3px dashed rgb(0, 199, 172);
     font-size: 20px;
     text-align: center;
     margin: 0 auto;
@@ -65,11 +64,12 @@
     user-select: none;
     background-image: url(cursor.gif);
     align-content: center;
+    background-color: rgba(0, 0,0, 0.5);
   }
 
   #clickarea:hover{
-    border: 2px solid #dc0000;
-    background-color: #000321;
+    background-color: rgba(0, 0,0, 0.7);
+    border: 3px solid rgb(234, 255, 43);
     background: center;
     transition: 0.1s ease;
     cursor: crosshair;
@@ -102,7 +102,7 @@
     color: #fff;
     text-shadow: 2px 2px 2px #000;
     border-radius: 10px;
-    background-color: rgba(220, 0, 0, 1);/**/
+    background-color: rgba(0, 199, 172,1 );/**/
     background-image: linear-gradient(to top left,
 				  rgba(0, 0, 0, .2),
 				  rgba(0, 0, 0, .2) 30%,
@@ -115,8 +115,9 @@
   }
 	
   #start:hover {
+    text-shadow: 3px 3px 3px #000;
     align-items: center;
-    background-color: #ff3333;
+    background-color: rgba(0, 133, 199);
     cursor: pointer;  
     padding: 163px 270px;/*padding: 163px 270px;*/
     box-shadow: none;
@@ -125,6 +126,8 @@
                 inset 2px 2px 3px rgba(0, 0, 0, .6);
     user-select: none;
     align-content: center;
+    font-size: 1.5rem;
+    color: yellow;
     }
 	
   #start:active {
@@ -135,7 +138,7 @@
 
 .alert {
   padding: 15px;
-  background-color: #f44336;
+  background-color: rgb(0, 199, 172);
   color: ghostwhite;
   width: 30%;
   margin-left: 34%;
@@ -149,7 +152,7 @@
 
 .closebtn {
   margin-left: 15px;
-  color: yellow;
+  color: #cf00c4;
   font-weight: bold;
   float: right;
   font-size: 30px;
@@ -164,10 +167,10 @@
 }
 
 
-/*----------------Copy System------------------*/
+/*-----rgb(0, 199, 172),2, 142, 212-----------Copy System------------------*/
 
     .copybtn{
-      background-color: #eb4034;
+      background-color: rgb(0, 199, 172);
       padding: 10px 10px;
       color: whitesmoke;
       border-radius: 5px;
@@ -193,14 +196,17 @@
   transition: 0.2s ease;
     padding: 10px 25px;  
     border-radius: 10px;
+    color: yellow;
+    background-color: rgb(2, 142, 212);
+    font-size: 21px;
 }
 
     .alertcopy{  
       text-shadow: 2px 2px 2px #000;                          
       margine: auto;
       position: absolute;
-      background-color: #121263;
-      color: white;
+      background-color: rgb(2, 142, 212);
+      color: yellow;
       padding: 15px 60px;
       border-radius: 20px;
       text-align: center;
@@ -221,7 +227,7 @@
                 inset 2px 2px 3px rgba(0, 0, 0, .6);
     user-select: none;
     }
-/*------------------nav (side)---------------*/
+/*------------------nav (side)--------https://celebritysex.co/deepfake-pov-porn-priyanka-chopra/-------*/
 
 
 .overlay {
@@ -248,26 +254,32 @@
   padding: 8px;
   text-decoration: none;
   font-size: 36px;
-  color: #ff4040;
+  color: rgb(0, 199, 172) ;
   display: block;
   transition: 0.3s;
   text-shadow: 2px 2px 2px #000;
+  transition: 0.3s ease;
 }
 
 .overlay a:hover, .overlay a:focus {
-  color: #0eede6; 
+  color: yellow; 
+  font-size: 46px;
 }
 
 .overlay .closebtn {
   position: absolute;
-  top: 20px;
-  right: 45px;
+  top: 70px;
+  right: 135px;
   font-size: 60px;
-  color: yellowgreen;
+  color: aqua;
+  transition: 0.2s ease;
 }
 
 .overlay .closebtn:hover{
   color: red;
+  font-size: 79px;
+  top: 65px;
+  right: 125px;
 }
 
 @media screen and (max-height: 450px) {
@@ -295,19 +307,21 @@
 
 
 
-
-
 <div id="myNav" class="overlay">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <div class="overlay-content">
     <a href="https://www.youtube.com/c/ShloksRoboWorld" target="_blank">Youtube</a>
+    <a href="#"></a>
     <a href="https://github.com/ghost5077srw" target="_blank">Github</a>
+    <a href="#"></a>
     <a href="https://www.instagram.com/5hl0k_not_found/" target="_blank">Instagram</a>
+    <a href="#"></a>
+    <a href="https://ghost5077srw.github.io/Tic-Tac-Toe/" target="_blank">Tic-Tac-Toe</a>
 
   </div>
 </div>
 
-<span style="font-size:30px; cursor:pointer; color: #ff6a00;" onclick="openNav()">&#9776; Menu</span>
+<span style="font-size:30px;text-shadow: 2px 2px 2px #000;background-color: rgba(0, 0, 0, .1); cursor:pointer; color: #fbff00;" onclick="openNav()">&#9776; More</span>
 
 
 
